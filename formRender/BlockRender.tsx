@@ -10,7 +10,7 @@ function BlockRender({data}:BlockRenderprops) {
     <div className='flex flex-col items-start justify-start'>
         {data.map((item)=>{
             if (item.type=="shortQtn") {
-                return <ShortQuestion key={item.id} question={item.val1} />
+                return <ShortQuestion id={item.id} key={item.id} question={item.val1} />
             }
         })}
     </div>

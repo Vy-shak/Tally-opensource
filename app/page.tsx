@@ -1,10 +1,11 @@
-"use client"
-import Image from "next/image";
+import React from 'react'
 
-export default function Home() {
+function page() {
   return (
-    <section>
-      
-    </section>
-  );
+    <div>
+      welcome to tally opensource
+    </div>
+  )
 }
+
+export default page

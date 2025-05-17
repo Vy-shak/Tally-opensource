@@ -1,21 +1,26 @@
 "use client"
 import React from 'react'
+import { useState } from 'react'
 import { Input } from '../export'
 import { useRef } from 'react'
-import { GripVertical } from "lucide-react"
-import Maincard from '../ui/Maincard'
+import Toolbar from '../ui/Toolbar'
+import { useFormStore } from '@/lib/useFormData'
 
 interface ShortQuestionprops {
-  id:number,
+  id: number,
   question: string,
+  required: boolean,
 }
 
-function ShortQuestion({ question }: ShortQuestionprops) {
+function ShortQuestion({ question,id }: ShortQuestionprops) {
+  const [openToolBar, setOpenToolBar] = useState(false);
   const questionRef = useRef<HTMLInputElement>(null);
 
   return (
-    <div className='flex items-start justify-start'>
-      <Maincard />
+    <div onMouseLeave={() => setOpenToolBar(false)} onMouseOver={() => setOpenToolBar(true)} className='flex items-start justify-start'>
+      <div className='flex justify-start items-start'>
+          <Toolbar blockId={id} show={openToolBar} />  
+      </div>
       <div className='flex flex-col justify-start items-start'>
         <input ref={questionRef} defaultValue={question} placeholder='type your question' className='text-lg w-screen border-none outline-none font-semibold text-neutral-900' />
         <Input />

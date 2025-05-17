@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { Input } from '../export'
 import { useRef } from 'react'
@@ -13,8 +13,15 @@ interface ShortQuestionprops {
 }
 
 function ShortQuestion({ question,id }: ShortQuestionprops) {
+  const { updateFormData } = useFormStore();
   const [openToolBar, setOpenToolBar] = useState(false);
   const questionRef = useRef<HTMLInputElement>(null);
+
+  useEffect(()=>{
+    if (questionRef.current) {
+      updateFormData(id,questionRef.current.value);
+    }
+  },[questionRef.current?.value])
 
   return (
     <div onMouseLeave={() => setOpenToolBar(false)} onMouseOver={() => setOpenToolBar(true)} className='flex items-start justify-start'>

@@ -13,8 +13,6 @@ function Toolbar({ show, blockId }: ToolbarProps ) {
     const [Openoption, setOpenoption] = useState(false);
     const { removeFormData,addFormData,formData } = useFormStore();
 
-    console.log(formData);
-
     const handleClick = () => {
         setOpenoption((prev) => !prev)
     }

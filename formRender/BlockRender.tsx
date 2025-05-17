@@ -6,6 +6,10 @@ import { useFormStore } from '@/lib/useFormData'
 
 function BlockRender() {
   const { formData } = useFormStore();
+
+  console.log(formData);
+
+
   return (
     <div className='flex flex-col items-start justify-start'>
         {formData.map((block)=>{

@@ -12,7 +12,7 @@ function Checkboxmenu({ label }: CheckboxmenuProps) {
     return (
         <div className='flex gap-x-2 items-center justify-center w-fit'>
             <Checkbox/>
-            <span className='font-normal text-sm text-neutral-600'>{label}</span>
+            <input type="text" placeholder={label} className='text-sm w-screen border-none outline-none font-semibold text-neutral-900' />  
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import React from 'react'
-import { Toolbar, Textarea, Checkboxmenu } from '../components/export'
+import { Toolbar,  Checkboxmenu } from '../components/export'
+import { useSetLabel } from '../Hooks/export';
 import { useState } from 'react';
 import { useRef } from 'react';
 interface option {
@@ -17,6 +18,8 @@ interface CheckBoxesProps {
 function CheckBoxes({ label, id, options }: CheckBoxesProps) {
     const [openToolBar, setOpenToolBar] = useState(false);
     const labelRef = useRef<HTMLInputElement>(null);
+
+     useSetLabel({ labelRef: labelRef, id });
 
 
     return (

@@ -1,10 +1,10 @@
 "use client"
-import React, { useEffect } from 'react'
+import React  from 'react'
 import { useState } from 'react'
 import { Input,Textarea } from '../components/export'
 import { useRef } from 'react'
 import Toolbar from '../components/ui/Toolbar'
-import { useFormStore } from '@/lib/useFormData'
+import useSetLabel from '@/Hooks/useSetLabel'
 
 interface ShortAnswerProps {
   id: number,
@@ -13,15 +13,10 @@ interface ShortAnswerProps {
 }
 
 function LongAnswer({ question,id }: ShortAnswerProps) {
-  const { updateFormData } = useFormStore();
   const [openToolBar, setOpenToolBar] = useState(false);
   const questionRef = useRef<HTMLInputElement>(null);
 
-  useEffect(()=>{
-    if (questionRef.current) {
-      updateFormData(id,questionRef.current.value);
-    }
-  },[questionRef.current?.value])
+  useSetLabel({ labelRef: questionRef, id });
 
   return (
     <div onMouseLeave={() => setOpenToolBar(false)} onMouseOver={() => setOpenToolBar(true)} className='flex items-start max-w-lg justify-start'>

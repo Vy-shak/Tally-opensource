@@ -23,7 +23,7 @@ interface CheckBoxes {
     type:BlockType.CheckBoxes,
     label:string,
     required:boolean,
-    options:{checked:boolean,label:string}[]  
+    options:{checked:boolean,label:string,id:number}[]  
 }
 
 export type FormStore = (shortQuestion | LongQuestion| CheckBoxes)[]

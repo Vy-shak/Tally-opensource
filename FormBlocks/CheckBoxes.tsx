@@ -4,6 +4,7 @@ import { useSetLabel } from '../Hooks/export';
 import { useState } from 'react';
 import { useRef } from 'react';
 interface option {
+    id: number, 
     checked: boolean,
     label: string,
 }
@@ -18,8 +19,12 @@ interface CheckBoxesProps {
 function CheckBoxes({ label, id, options }: CheckBoxesProps) {
     const [openToolBar, setOpenToolBar] = useState(false);
     const labelRef = useRef<HTMLInputElement>(null);
+    const checkBoxref = useRef<HTMLInputElement>(null);
 
      useSetLabel({ labelRef: labelRef, id });
+
+
+
 
 
     return (
@@ -29,9 +34,9 @@ function CheckBoxes({ label, id, options }: CheckBoxesProps) {
             </div>
             <div className='flex flex-col gap-y-2 justify-start items-start'>
                 <input ref={labelRef} placeholder='Write your query here' className='text-lg w-screen border-none outline-none font-semibold text-neutral-900' />
-                <div className='flex flex-col justify-start items-start '>
-                    {options.map((option, index) => (
-                        <Checkboxmenu key={index} label={option.label} />
+                <div className='flex flex-col gap-y-1 justify-start items-start '>
+                    {options.map((menu, index) => (
+                        <Checkboxmenu id={id} checkBoxref={checkBoxref} key={index} label={menu.label} />
                     ))}
                 </div>
             </div>

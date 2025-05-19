@@ -1,6 +1,7 @@
 export enum BlockType {
     ShortQuestion = "shortQuestion",
-    LongQuestion = "longQuestion",  
+    LongQuestion = "longQuestion",
+    CheckBoxes = "checkBoxes", 
 }
 
 interface shortQuestion {
@@ -17,5 +18,13 @@ interface LongQuestion {
     required:boolean,
 }
 
-export type FormStore = (shortQuestion | LongQuestion)[]
+interface CheckBoxes {
+    id:number,
+    type:BlockType.CheckBoxes,
+    label:string,
+    required:boolean,
+    options:{checked:boolean,label:string}[]  
+}
+
+export type FormStore = (shortQuestion | LongQuestion| CheckBoxes)[]
 

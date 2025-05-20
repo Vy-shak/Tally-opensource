@@ -26,5 +26,5 @@ interface CheckBoxes {
     options:{checked:boolean,label:string,id:number}[]  
 }
 
-export type FormStore = (shortQuestion | LongQuestion| CheckBoxes)[]
+export type FormStore = shortQuestion | LongQuestion| CheckBoxes
 

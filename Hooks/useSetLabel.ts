@@ -9,11 +9,11 @@ interface useSetLabelProps {
 }
 
 function useSetLabel({ labelRef, id }: useSetLabelProps) {
-    const { updateFormData } = useFormStore();
+    const { updateLabel } = useFormStore();
 
     useEffect(() => {
         if (labelRef.current) {
-            updateFormData(id, labelRef.current.value);
+            updateLabel(id, labelRef.current.value);
         }
     }, [labelRef.current?.value])
 

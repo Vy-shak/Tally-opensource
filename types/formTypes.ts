@@ -8,6 +8,7 @@ interface shortQuestion {
     id:number,
     type:BlockType.ShortQuestion,
     label:string,
+    placeholder:string
     required:boolean,
 }
 
@@ -15,6 +16,7 @@ interface LongQuestion {
     id:number,
     type:BlockType.LongQuestion,
     label:string,
+    placeholder:string,
     required:boolean,
 }
 

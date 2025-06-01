@@ -8,15 +8,17 @@ interface useSetLabelProps {
     labelRef: RefObject<HTMLInputElement | null>
 }
 
+
 function useSetLabel({ labelRef, id }: useSetLabelProps) {
-    const { updateLabel } = useFormStore();
+    const { updateLabel} = useFormStore();
 
     useEffect(() => {
-        if (labelRef.current) {
+        if (labelRef.current?.value) {
             updateLabel(id, labelRef.current.value);
         }
     }, [labelRef.current?.value])
 
 }
+
 
 export default useSetLabel

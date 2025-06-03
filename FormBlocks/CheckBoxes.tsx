@@ -3,8 +3,11 @@ import { Toolbar,  Checkboxmenu } from '../components/export'
 import { useSetLabel } from '../Hooks/export';
 import { useState } from 'react';
 import { useRef } from 'react';
+import { useFormStore } from '@/lib/useFormData';
+
+
 interface option {
-    id: number, 
+    checkId: string, 
     checked: boolean,
     label: string,
 }
@@ -21,8 +24,9 @@ function CheckBoxes({ label, id, options }: CheckBoxesProps) {
     const labelRef = useRef<HTMLInputElement>(null);
     const checkBoxref = useRef<HTMLInputElement>(null);
 
-     useSetLabel({ labelRef: labelRef, id });
 
+
+     useSetLabel({ labelRef: labelRef, id });
 
 
 

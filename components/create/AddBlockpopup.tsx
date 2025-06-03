@@ -2,11 +2,13 @@ import { Popup, BlockMenu } from "../export";
 import { Dispatch, useState } from "react";
 import { SetStateAction } from "react";
 import React from 'react'
-import { blockforms } from "@/constants/editor";
+import { blockData } from "@/constants/editor";
 import { FormStore } from "@/types/formTypes";
 import { useFormStore } from "@/lib/useFormData";
 import { Button } from "../export";
 import { X } from "lucide-react";
+import { BlockType } from "@/types/formTypes";
+import { v4 as uuidv4 } from 'uuid';
 
 interface AddBlockpopupProps {
   open: boolean,
@@ -17,7 +19,15 @@ export default function AddBlockpopup({ open,setOpen }: AddBlockpopupProps) {
   const { formData,addFormData } = useFormStore()
 
   const handleaddBlock = (item: FormStore) => {
-    addFormData(item)
+    if (item.type == BlockType.ShortQuestion || BlockType.LongQuestion) {
+          const id = uuidv4()
+          const updatedItem = {...item,id:id}
+          addFormData(updatedItem)
+    }
+    if (item.type === BlockType.CheckBoxes) {
+       const id = uuidv4();
+       const checkBoxes = item.options;
+    }
   }
   return (
     <>
@@ -28,7 +38,7 @@ export default function AddBlockpopup({ open,setOpen }: AddBlockpopupProps) {
           </div>
           <div className="w-full pl-4 pt-6 bg-white h-full rounded-xl flex  items-start justify-start">
             <div className="w-fit flex flex-col items-start justify-start gap-y-3">
-              {blockforms.map((block) => (
+              {blockData.map((block) => (
                 <BlockMenu setOpen={setOpen} Onclick={() => handleaddBlock(block.addItem)} key={block.id} icon={block.icon} title={block.title} />
               ))}
             </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import {ShortAnswer,LongAnswer,CheckBoxes} from "../FormBlocks/export"
+import {ShortAnswer,LongAnswer,CheckBoxes,YesorNoquesion} from "../FormBlocks/export"
 import { BlockType } from '@/types/formTypes'
 import { useFormStore } from '@/lib/useFormData'
 
@@ -20,6 +20,9 @@ function BlockRender() {
             }
             if (block.type==BlockType.CheckBoxes) {
                 return <CheckBoxes id={block.id} key={block.id} label={block.label} options={block.options} required={block.required} />
+            }
+            if (block.type==BlockType.YesorNo) {
+                return <YesorNoquesion  id={block.id} key={block.id} />
             }
         })}
     </div>

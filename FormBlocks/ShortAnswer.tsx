@@ -8,7 +8,7 @@ import useSetLabel from '@/Hooks/useSetLabel'
 import { useSetplaceHolder } from '@/Hooks/useSetPlaceholder'
 
 interface ShortAnswerProps {
-  id: number,
+  id: string,
   question: string,
   required: boolean,
 }

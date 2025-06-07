@@ -1,11 +1,18 @@
 export enum BlockType {
     ShortQuestion = "shortQuestion",
     LongQuestion = "longQuestion",
-    CheckBoxes = "checkBoxes", 
+    CheckBoxes = "checkBoxes",
+    YesorNo="yesOrno"
+}
+
+export enum pol {
+  Yes = "yes",
+  No = "no",
+  none= "none"
 }
 
 interface shortQuestion {
-    id:number,
+    id:string,
     type:BlockType.ShortQuestion,
     label:string,
     placeholder:string
@@ -13,7 +20,7 @@ interface shortQuestion {
 }
 
 interface LongQuestion {
-    id:number,
+    id:string,
     type:BlockType.LongQuestion,
     label:string,
     placeholder:string,
@@ -28,5 +35,13 @@ interface CheckBoxes {
     options:{checked:boolean,label:string,checkId:string}[]  
 }
 
-export type FormStore = shortQuestion | LongQuestion| CheckBoxes
+interface yesOrno {
+    id:string,
+    type:BlockType.YesorNo,
+    label:string,
+    required:boolean,
+    selected: pol
+}
+
+export type FormStore = shortQuestion | LongQuestion| CheckBoxes | yesOrno
 

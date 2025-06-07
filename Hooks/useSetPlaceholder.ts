@@ -3,7 +3,7 @@ import { useFormStore } from "@/lib/useFormData";
 import { RefObject } from "react";
 
 interface placeholderProps {
-    id:number,
+    id:string,
     placeholderRef:RefObject<HTMLTextAreaElement | HTMLInputElement | null>
 }
 

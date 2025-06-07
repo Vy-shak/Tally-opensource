@@ -11,6 +11,7 @@ interface store {
     updatePlaceholder:(id:string,entry:string)=>void,
     addCheckbox:(id:string)=>void
     updateCheckbox:(id:string, checkId:string,entry:string)=>void
+    deleteCheckbox:(id:string, checkId:string)=>void
 }
 
 
@@ -43,6 +44,21 @@ const useFormStore = create<store>((set) => ({
             return opt.checkId === checkId ? { ...opt, label: entry } : opt
           }
             
+          );
+          return { ...item, options: updatedOptions };
+        }
+        return item;
+      }),
+    })),
+
+
+  deleteCheckbox:(id, checkId) =>
+        set((state) => ({
+      formData: state.formData.map((item) => {
+        if (item.id === id && item.type === BlockType.CheckBoxes) {
+          const updatedOptions = item.options.filter((opt) =>{
+            return opt.checkId !== checkId
+          }
           );
           return { ...item, options: updatedOptions };
         }

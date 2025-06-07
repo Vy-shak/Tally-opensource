@@ -15,7 +15,7 @@ interface CheckboxmenuProps {
 
 
 function Checkboxmenu({ label, id,checkId }: CheckboxmenuProps) {
-    const { addCheckbox,updateCheckbox} = useFormStore();
+    const { addCheckbox,updateCheckbox,deleteCheckbox} = useFormStore();
     const checkBoxref  = useRef<HTMLInputElement>(null)
 
     const addMoreCheckbox = ()=>{
@@ -27,7 +27,11 @@ function Checkboxmenu({ label, id,checkId }: CheckboxmenuProps) {
             updateCheckbox(id,checkId,checkBoxref.current?.value)
         }
     }
-    
+
+    const handleDelete = ()=>{
+        deleteCheckbox(id,checkId)
+    }
+
     return (
         <div className='flex items-center justify-start w-fit'>
             <div className='flex gap-x-2 items-center justify-center w-fit'>
@@ -38,7 +42,7 @@ function Checkboxmenu({ label, id,checkId }: CheckboxmenuProps) {
                 <div  className='flex items-center cursor-pointer hover:bg-neutral-100 rounded justify-center w-fit h-fit p-1'>
                     <Plus onClick={addMoreCheckbox} size={18} className='text-neutral-400' />
                 </div>
-                <div className='flex items-center cursor-pointer hover:bg-neutral-100 rounded justify-center w-fit h-fit p-1'>
+                <div onClick={handleDelete} className='flex items-center cursor-pointer hover:bg-neutral-100 rounded justify-center w-fit h-fit p-1'>
                     <Trash2 size={18} className='text-neutral-400' />
                 </div>
             </div>

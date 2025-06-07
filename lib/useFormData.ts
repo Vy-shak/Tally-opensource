@@ -7,9 +7,10 @@ interface store {
     formData:FormStore[]|[],
     removeFormData:(block:any)=>void,
     addFormData:(block:any)=>void,
-    updateLabel:(id:number,entry:string)=>void,
-    updatePlaceholder:(id:number,entry:string)=>void,
-    addCheckbox:(id:number)=>void
+    updateLabel:(id:string,entry:string)=>void,
+    updatePlaceholder:(id:string,entry:string)=>void,
+    addCheckbox:(id:string)=>void
+    updateCheckbox:(id:string, checkId:string,entry:string)=>void
 }
 
 
@@ -17,20 +18,38 @@ interface store {
 const useFormStore = create<store>((set) => ({
   formData:[],
   addFormData: (block) => set((state) => ({ formData: [...state.formData, block] })),
-  removeFormData:(id:number)=> set((state)=>({formData:state.formData.filter((item)=>item.id!==id)})),
-  updateLabel:(id:number,entry:string)=>set((state)=>({formData:state.formData.map((item)=>item.id===id?{...item,label:entry}:item)})),
-  updatePlaceholder:(id:number,entry:string)=>set((state)=>({formData:state.formData.map((item)=>item.id===id?{...item,placeholder:entry}:item)})),
-  addCheckbox:(id:number)=>set((state)=>({formData:state.formData.map((item)=>{
-    if (item.id === id&&item.type==BlockType.CheckBoxes) {
-      const checkBoxes = item.options;
-      const updatedCheckBoxes = [
-          ...checkBoxes,
-          { checked: false, label: 'option', checkId: uuidv4() },
-        ];
-      return {...item,options:updatedCheckBoxes}
-    }
-    return item
-  })}))
+  removeFormData:(id:string)=> set((state)=>({formData:state.formData.filter((item)=>item.id!==id)})),
+  updateLabel:(id:string,entry:string)=>set((state)=>({formData:state.formData.map((item)=>item.id===id?{...item,label:entry}:item)})),
+  updatePlaceholder:(id:string,entry:string)=>set((state)=>({formData:state.formData.map((item)=>item.id===id?{...item,placeholder:entry}:item)})),
+  addCheckbox: (id) =>
+    set((state) => ({
+      formData: state.formData.map((item) => {
+        if (item.id === id && item.type === BlockType.CheckBoxes) {
+          const updatedCheckBoxes = [
+            ...item.options,
+            { checked: false, label: 'option', checkId: uuidv4() },
+          ];
+          return { ...item, options: updatedCheckBoxes };
+        }
+        return item;
+      }),
+    })),
+
+  updateCheckbox: (id, checkId, entry) =>
+    set((state) => ({
+      formData: state.formData.map((item) => {
+        if (item.id === id && item.type === BlockType.CheckBoxes) {
+          const updatedOptions = item.options.map((opt) =>{
+            return opt.checkId === checkId ? { ...opt, label: entry } : opt
+          }
+            
+          );
+          return { ...item, options: updatedOptions };
+        }
+        return item;
+      }),
+    })),
+
 }));
 
 export { useFormStore};

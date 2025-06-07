@@ -6,7 +6,7 @@ import { BlockType } from '@/types/formTypes'
 
 interface ToolbarProps {
     show: boolean,
-    blockId:number
+    blockId:string
 }
 
 function Toolbar({ show, blockId }: ToolbarProps ) {

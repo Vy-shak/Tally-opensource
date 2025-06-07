@@ -3,7 +3,6 @@ import { Toolbar,  Checkboxmenu } from '../components/export'
 import { useSetLabel } from '../Hooks/export';
 import { useState } from 'react';
 import { useRef } from 'react';
-import { useFormStore } from '@/lib/useFormData';
 
 
 interface option {
@@ -14,7 +13,7 @@ interface option {
 
 interface CheckBoxesProps {
     label: string,
-    id: number,
+    id: string,
     required: boolean,
     options: option[]
 }
@@ -25,10 +24,7 @@ function CheckBoxes({ label, id, options }: CheckBoxesProps) {
     const checkBoxref = useRef<HTMLInputElement>(null);
 
 
-
-     useSetLabel({ labelRef: labelRef, id });
-
-
+    useSetLabel({ labelRef: labelRef, id });
 
 
     return (
@@ -40,7 +36,7 @@ function CheckBoxes({ label, id, options }: CheckBoxesProps) {
                 <input ref={labelRef} placeholder='Write your query here' className='text-lg w-screen border-none outline-none font-semibold text-neutral-900' />
                 <div className='flex flex-col gap-y-1 justify-start items-start '>
                     {options.map((menu, index) => (
-                        <Checkboxmenu id={id} checkBoxref={checkBoxref} key={index} label={menu.label} />
+                        <Checkboxmenu id={id} checkId={menu.checkId} checkBoxref={checkBoxref} key={index} label={menu.label} />
                     ))}
                 </div>
             </div>

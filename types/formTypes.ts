@@ -21,7 +21,7 @@ interface LongQuestion {
 }
 
 interface CheckBoxes {
-    id:number,
+    id:string,
     type:BlockType.CheckBoxes,
     label:string,
     required:boolean,

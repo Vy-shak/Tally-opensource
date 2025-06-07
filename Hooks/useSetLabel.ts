@@ -4,7 +4,7 @@ import React from 'react'
 import { RefObject } from "react";
 
 interface useSetLabelProps {
-    id: number,
+    id: string,
     labelRef: RefObject<HTMLInputElement | null>
 }
 

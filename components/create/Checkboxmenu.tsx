@@ -2,10 +2,11 @@ import React from 'react'
 import { Checkbox } from '../ui/checkbox'
 import { Copy, Trash2, Plus } from 'lucide-react'
 import { useFormStore } from '@/lib/useFormData'
-import {v4 as uuidv4} from "uuid"
+import { useRef } from 'react'
 
 interface CheckboxmenuProps {
-    id: number,
+    id: string,
+    checkId:string
     label: string,
     checkBoxref: React.RefObject<HTMLInputElement | null>
 }
@@ -13,17 +14,25 @@ interface CheckboxmenuProps {
 
 
 
-function Checkboxmenu({ label, id }: CheckboxmenuProps) {
-    const { addCheckbox,} = useFormStore();
+function Checkboxmenu({ label, id,checkId }: CheckboxmenuProps) {
+    const { addCheckbox,updateCheckbox} = useFormStore();
+    const checkBoxref  = useRef<HTMLInputElement>(null)
 
     const addMoreCheckbox = ()=>{
         addCheckbox(id)
     }
+
+    const handleupdate = ()=>{
+        if (checkBoxref.current?.value) {
+            updateCheckbox(id,checkId,checkBoxref.current?.value)
+        }
+    }
+    
     return (
         <div className='flex items-center justify-start w-fit'>
             <div className='flex gap-x-2 items-center justify-center w-fit'>
                 <Checkbox />
-                <input type="text" placeholder={label} className='text-sm w-sm border-none outline-none font-semibold text-neutral-900' />
+                <input onChange={handleupdate} ref={checkBoxref} type="text" placeholder={label} className='text-sm w-sm border-none outline-none font-semibold text-neutral-900' />
             </div>
             <div className='flex gap-x-2 items-center justify-center w-fit'>
                 <div  className='flex items-center cursor-pointer hover:bg-neutral-100 rounded justify-center w-fit h-fit p-1'>

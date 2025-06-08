@@ -27,8 +27,8 @@ function YesorNoblock({id}:yesorNoblockProps) {
 
   return (
     <div className='flex gap-x-2 justify-center items-center'>
-      <Button className='max-w-16' onClick={handleYes}>Yes</Button>
-      <Button onClick={handleNo}>No</Button>
+      <Button className={`max-w-16 ${selected==pol.Yes?"bg-neutral-900 text-white border-neutral-900":"bg-white border-neutral-400 text-neutral-800"} hover:bg-white border-2 `} onClick={handleYes}>Yes</Button>
+      <Button className={`max-w-16 ${selected==pol.No?"bg-neutral-900 text-white border-neutral-900":"bg-white border-neutral-400 text-neutral-800"} hover:bg-white border-2 `} onClick={handleNo}>No</Button>
     </div>
   )
 }

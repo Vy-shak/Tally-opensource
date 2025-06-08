@@ -19,7 +19,7 @@ export default function AddBlockpopup({ open,setOpen }: AddBlockpopupProps) {
   const { formData,addFormData } = useFormStore()
 
   const handleaddBlock = (item: FormStore) => {
-    if (item.type == BlockType.ShortQuestion || BlockType.LongQuestion) {
+    if (item.type == BlockType.ShortQuestion || BlockType.LongQuestion || BlockType.rating) {
           const id = uuidv4()
           const updatedItem = {...item,id:id}
           addFormData(updatedItem)

@@ -2,7 +2,8 @@ export enum BlockType {
     ShortQuestion = "shortQuestion",
     LongQuestion = "longQuestion",
     CheckBoxes = "checkBoxes",
-    YesorNo="yesOrno"
+    YesorNo="yesOrno",
+    rating = "rating"
 }
 
 export enum pol {
@@ -43,5 +44,13 @@ interface yesOrno {
     selected: pol
 }
 
-export type FormStore = shortQuestion | LongQuestion| CheckBoxes | yesOrno
+interface rating {
+    id:string,
+    type:BlockType.rating,
+    label:string,
+    required:boolean,
+    starsNo:number
+}
+
+export type FormStore = shortQuestion | LongQuestion| CheckBoxes | yesOrno | rating
 

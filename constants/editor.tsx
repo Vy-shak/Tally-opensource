@@ -35,6 +35,12 @@ const blockData:blockItems[] = [
         icon: <CircleCheck />,
         title: "yes or No",
         addItem:{id:"yesorNo", type:BlockType.YesorNo, label:"how is the josh",required:false,selected:pol.none}
+    },
+    {
+        id:uuidv4(),
+        icon: <CircleCheck />,
+        title: "rating",
+        addItem:{id:"rating", type:BlockType.rating, label:"how is the josh",required:false, starsNo:5}
     }
 ];
 

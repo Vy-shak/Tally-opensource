@@ -27,7 +27,7 @@ function ShortAnswer({ question,id }: ShortAnswerProps) {
           <Toolbar blockId={id} show={openToolBar} />  
       </div>
       <div className='flex flex-col justify-start items-start'>
-        <input ref={questionRef}  placeholder='type your question here..' className='text-lg w-screen border-none outline-none font-semibold text-neutral-900' />
+        <input ref={questionRef}  placeholder='type your question here..' className='text-lg max-w-lg border-none outline-none font-semibold text-neutral-900' />
         <Input  placeholder='write your placeholder here' ref={placeHolderRef} className='max-w-lg text-sm text-neutral-600' />
       </div>
     </div>

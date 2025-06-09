@@ -23,8 +23,8 @@ function Heading({ id,type }: ShortAnswerProps) {
           <Toolbar blockId={id} show={openToolBar} />  
       </div>
       <div className='flex flex-col justify-start items-start'>
-        {type==BlockType.Heading1&&<input ref={questionRef}  placeholder='type your Heading' className='text-3xl w-screen border-none outline-none font-semibold text-neutral-900' />}
-        {type==BlockType.Heading2&&<input ref={questionRef}  placeholder='type your Heading' className='text-xl w-screen border-none outline-none font-semibold text-neutral-900' />}
+        {type==BlockType.Heading1&&<input ref={questionRef}  placeholder='type your Heading' className='text-3xl mb-6 w-screen border-none outline-none font-semibold text-neutral-900' />}
+        {type==BlockType.Heading2&&<input ref={questionRef}  placeholder='type your Heading' className='text-xl mb-3 w-screen border-none outline-none font-semibold text-neutral-900' />}
         {type==BlockType.Heading3&&<input ref={questionRef}  placeholder='type your Heading' className='text-md w-screen border-none outline-none font-semibold text-neutral-900' />}
       </div>
     </div>

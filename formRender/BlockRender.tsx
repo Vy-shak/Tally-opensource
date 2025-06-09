@@ -15,21 +15,21 @@ function BlockRender() {
             if (block.type==BlockType.ShortQuestion) {
                 return <ShortAnswer id={block.id} key={block.id} question={block.label} required={block.required} />
             }
-            if (block.type==BlockType.LongQuestion) {
-                return <LongAnswer id={block.id} key={block.id} question={block.label} required={block.required} />
-            }
-            if (block.type==BlockType.CheckBoxes) {
-                return <CheckBoxes id={block.id} key={block.id} label={block.label} options={block.options} required={block.required} />
-            }
-            if (block.type==BlockType.YesorNo) {
-                return <YesorNoquesion  id={block.id} key={block.id} />
-            }
-            if (block.type==BlockType.rating) {
-                return <Rating key={block.id} id={block.id} />
-            }
-            if (block.type==BlockType.Heading1 || block.type == BlockType.Heading2 || block.type == BlockType.Heading3) {
-                return <Heading type={block.type} key={block.id} id={block.id} />
-            }
+            // if (block.type==BlockType.LongQuestion) {
+            //     return <LongAnswer id={block.id} key={block.id} question={block.label} required={block.required} />
+            // }
+            // if (block.type==BlockType.CheckBoxes) {
+            //     return <CheckBoxes id={block.id} key={block.id} label={block.label} options={block.options} required={block.required} />
+            // }
+            // if (block.type==BlockType.YesorNo) {
+            //     return <YesorNoquesion  id={block.id} key={block.id} />
+            // }
+            // if (block.type==BlockType.rating) {
+            //     return <Rating key={block.id} id={block.id} />
+            // }
+            // if (block.type==BlockType.Heading1 || block.type == BlockType.Heading2 || block.type == BlockType.Heading3) {
+            //     return <Heading type={block.type} key={block.id} id={block.id} />
+            // }
         })}
     </div>
   )

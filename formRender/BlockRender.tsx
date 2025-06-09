@@ -1,5 +1,5 @@
 import React from 'react'
-import {ShortAnswer,LongAnswer, Rating,CheckBoxes,YesorNoquesion} from "../FormBlocks/export"
+import {ShortAnswer,LongAnswer, Rating,CheckBoxes,YesorNoquesion, Heading} from "../FormBlocks/export"
 import { BlockType } from '@/types/formTypes'
 import { useFormStore } from '@/lib/useFormData'
 
@@ -26,6 +26,9 @@ function BlockRender() {
             }
             if (block.type==BlockType.rating) {
                 return <Rating key={block.id} id={block.id} />
+            }
+            if (block.type==BlockType.Heading1 || block.type == BlockType.Heading2 || block.type == BlockType.Heading3) {
+                return <Heading type={block.type} key={block.id} id={block.id} />
             }
         })}
     </div>

@@ -36,8 +36,8 @@ export default function AddBlockpopup({ open,setOpen }: AddBlockpopupProps) {
           <div className="flex items-center justify-end w-full h-fit">
             <X onClick={()=>setOpen(false)} />
           </div>
-          <div className="w-full pl-4 pt-6 bg-white h-full rounded-xl flex  items-start justify-start">
-            <div className="w-fit flex flex-col items-start justify-start gap-y-3">
+          <div className="w-full pl-4 overflow-y-scroll pt-6 bg-white h-full rounded-xl flex  items-start justify-start">
+            <div className="w-fit  flex flex-col items-start justify-start gap-y-3">
               {blockData.map((block) => (
                 <BlockMenu setOpen={setOpen} Onclick={() => handleaddBlock(block.addItem)} key={block.id} icon={block.icon} title={block.title} />
               ))}

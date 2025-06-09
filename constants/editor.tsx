@@ -41,6 +41,24 @@ const blockData:blockItems[] = [
         icon: <CircleCheck />,
         title: "rating",
         addItem:{id:"rating", type:BlockType.rating, label:"how is the josh",required:false, starsNo:5}
+    },
+    {
+        id:uuidv4(),
+        icon: <CircleCheck />,
+        title: "Heading 1",
+        addItem:{id:"Heading1", type:BlockType.Heading1, label:"Type heading",required:false,}
+    },
+    {
+        id:uuidv4(),
+        icon: <CircleCheck />,
+        title: "Heading 2",
+        addItem:{id:"Heading1", type:BlockType.Heading2, label:"Type heading",required:false,}
+    },
+    {
+        id:uuidv4(),
+        icon: <CircleCheck />,
+        title: "Heading 3",
+        addItem:{id:"Heading1", type:BlockType.Heading3, label:"Type heading",required:false,}
     }
 ];
 

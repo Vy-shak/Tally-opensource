@@ -1,3 +1,4 @@
+"use client"
 import { Popup, BlockMenu } from "../export";
 import { Dispatch, useState } from "react";
 import { SetStateAction } from "react";

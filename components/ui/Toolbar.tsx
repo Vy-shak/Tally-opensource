@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from 'react'
 import { GripVertical, Trash2, Plus } from "lucide-react"
 import OptionCard from './OptionCard'

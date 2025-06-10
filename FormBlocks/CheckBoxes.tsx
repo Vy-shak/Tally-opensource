@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import { Toolbar,  Checkboxmenu } from '../components/export'
 import { useSetLabel } from '../Hooks/export';

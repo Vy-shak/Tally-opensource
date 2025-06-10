@@ -16,7 +16,7 @@ interface store {
   updateYesorNo: (id: string, entry: pol) => void
 }
 
-
+const initalData:FormStore[] = []
 
 const useFormStore = create<store>((set) => ({
   formData: [],

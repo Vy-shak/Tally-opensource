@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
+
 
 function Sidebar() {
   return (
-    <div>
-      
-    </div>
+          <div className='w-40 z-40 h-screen bg-neutral-700'>
+
+      </div>
   )
 }
 

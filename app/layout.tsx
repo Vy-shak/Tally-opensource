@@ -1,5 +1,6 @@
 import './globals.css';
-import { Poppins } from 'next/font/google';  // Import Poppins font from next/font/google
+import { Poppins } from 'next/font/google'; 
+import Sidebar from '@/components/general/Sidebar'; // Import Poppins font from next/font/google
 
 // Define Poppins font with all available weights
 const poppins = Poppins({
@@ -17,7 +18,7 @@ export default function RootLayout({
         {/* Add metadata or any other head elements */}
       </head>
       <body className={poppins.className}> {/* Apply the Poppins font class here */}
-        <div className="w-full h-full">
+        <div className="w-full flex justify-start items-start h-full">
           {children}
         </div>
       </body>

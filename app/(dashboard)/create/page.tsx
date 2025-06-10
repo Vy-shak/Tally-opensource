@@ -9,7 +9,7 @@ function page() {
   const [open,setOpen] = useState(false)  
 
   return (
-    <section className='flex flex-col px-20 pt-20 items-start justify-start'>
+    <section className='flex flex-col  items-start justify-start'>
       <BlockRender />
       <Button onClick={()=>setOpen(true)} className='fixed bottom-12 right-8'>Create</Button> 
       <AddBlockpopup setOpen = {setOpen} open={open} />

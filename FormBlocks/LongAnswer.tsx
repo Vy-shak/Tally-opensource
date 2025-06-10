@@ -22,12 +22,12 @@ function LongAnswer({ question,id }: ShortAnswerProps) {
   useSetplaceHolder({placeholderRef:placeHolderRef,id})
 
   return (
-    <div onMouseLeave={() => setOpenToolBar(false)} onMouseOver={() => setOpenToolBar(true)} className='flex items-start max-w-lg justify-start'>
+    <div onMouseLeave={() => setOpenToolBar(false)} onMouseOver={() => setOpenToolBar(true)} className='flex items-start  justify-start'>
       <div className='flex justify-start items-start'>
           <Toolbar blockId={id} show={openToolBar} />  
       </div>
       <div className='flex flex-col justify-start items-start'>
-        <input ref={questionRef}  placeholder='type your question here..' className='text-lg w-screen border-none outline-none font-semibold text-neutral-900' />
+        <input ref={questionRef}  placeholder='type your question here..' className='text-lg w-full border-none outline-none font-semibold text-neutral-900' />
         <Textarea ref={placeHolderRef} placeholder='add your placeholder text here' className='min-h-32 max-w-lg text-start flex items-start justify-start placeholder:text-neutral-600' />
       </div>
     </div>

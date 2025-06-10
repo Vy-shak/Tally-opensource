@@ -1,5 +1,5 @@
 import React from 'react'
-import {ShortAnswer,LongAnswer, Rating,CheckBoxes,YesorNoquesion, Heading} from "../FormBlocks/export"
+import {ShortAnswer,LongAnswer, SubmitBlock, Rating,CheckBoxes,YesorNoquesion, Heading} from "../FormBlocks/export"
 import { BlockType } from '@/types/formTypes'
 import { useFormStore } from '@/lib/useFormData'
 
@@ -31,6 +31,7 @@ function BlockRender() {
                 return <Heading type={block.type} key={block.id} id={block.id} />
             }
         })}
+                    <SubmitBlock/>
     </div>
   )
 }

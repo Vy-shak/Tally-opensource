@@ -4,6 +4,7 @@ import CheckBoxes from "./CheckBoxes";
 import YesorNoquesion from "./YesorNoquestion";
 import Rating from "./Rating";
 import Heading from "./Heading";
+import SubmitBlock from "./SubmitBlock";
 
 
-export { LongAnswer, ShortAnswer, Heading, Rating, CheckBoxes,YesorNoquesion }; 
+export { LongAnswer, SubmitBlock, ShortAnswer, Heading, Rating, CheckBoxes,YesorNoquesion }; 

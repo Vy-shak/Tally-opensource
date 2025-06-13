@@ -1,9 +1,12 @@
 import React from 'react'
+import { Button } from '@/components/export'
+import { googleauth } from './api/auth'
 
 function page() {
+
   return (
     <div>
-      welcome to tally opensource
+      <Button onClick={googleauth}></Button>
     </div>
   )
 }

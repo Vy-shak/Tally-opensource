@@ -16,10 +16,10 @@ interface store {
   updateYesorNo: (id: string, entry: pol) => void
 }
 
-const initalData:FormStore[] = []
+const initalData:FormStore[] = [{id:"Heading1", type:BlockType.Heading1, label:"Type heading",required:false},{id:"shortquestion", type:BlockType.ShortQuestion, placeholder:"", label:"how is the josh",required:false}]
 
 const useFormStore = create<store>((set) => ({
-  formData: [],
+  formData: initalData,
   addFormData: (block) => set((state) => ({ formData: [...state.formData, block] })),
   removeFormData: (id: string) => set((state) => ({ formData: state.formData.filter((item) => item.id !== id) })),
   updateLabel: (id: string, entry: string) => set((state) => ({ formData: state.formData.map((item) => item.id === id ? { ...item, label: entry } : item) })),

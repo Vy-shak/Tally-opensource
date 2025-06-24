@@ -1,12 +1,8 @@
-import { supabase } from "@/lib/supabase";
 import axios from "axios";
 import { apiUrl } from "@/config";
 
 const googleauth = async () => {
     try {
-        const { data, error } = await supabase.auth.signInWithOAuth({
-            provider: 'google',
-        });
     } catch (error) {
         console.error(error)
     }

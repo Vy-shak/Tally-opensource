@@ -1,6 +1,13 @@
 import './globals.css';
-import { Poppins } from 'next/font/google'; 
-import Sidebar from '@/components/general/Sidebar'; // Import Poppins font from next/font/google
+import { Poppins } from 'next/font/google';
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs' // Import Poppins font from next/font/google
 
 // Define Poppins font with all available weights
 const poppins = Poppins({
@@ -13,15 +20,25 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <head>
-        {/* Add metadata or any other head elements */}
-      </head>
-      <body className={poppins.className}> {/* Apply the Poppins font class here */}
-        <div className="w-full flex justify-start items-start h-full">
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${poppins.className} `}>
+          <header className="flex justify-end items-center p-4 gap-4 h-16">
+            <SignedOut>
+              <SignInButton />
+              <SignUpButton>
+                <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
+                  Sign Up
+                </button>
+              </SignUpButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </header>
           {children}
-        </div>
-      </body>
-    </html>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

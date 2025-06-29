@@ -1,9 +1,10 @@
 "use client"
 import React from 'react'
 import { Checkbox } from '../ui/checkbox'
-import { Copy, Trash2, Plus } from 'lucide-react'
+import { Trash2, Plus } from 'lucide-react'
 import { useFormStore } from '@/lib/useFormData'
 import { useRef } from 'react'
+import { usePopup,status,popuptype } from '@/lib/usePopup'
 
 interface CheckboxmenuProps {
     id: string,
@@ -17,11 +18,8 @@ interface CheckboxmenuProps {
 
 function Checkboxmenu({ label, id,checkId }: CheckboxmenuProps) {
     const { addCheckbox,updateCheckbox,deleteCheckbox} = useFormStore();
-    const checkBoxref  = useRef<HTMLInputElement>(null)
-
-    const addMoreCheckbox = ()=>{
-        addCheckbox(id)
-    }
+    const checkBoxref  = useRef<HTMLInputElement>(null);
+    const {updatePopup} = usePopup()
 
     const handleupdate = ()=>{
         if (checkBoxref.current?.value) {
@@ -33,6 +31,7 @@ function Checkboxmenu({ label, id,checkId }: CheckboxmenuProps) {
         deleteCheckbox(id,checkId)
     }
 
+
     return (
         <div className='flex items-center justify-start w-fit'>
             <div className='flex gap-x-2 items-center justify-center w-fit'>
@@ -41,7 +40,7 @@ function Checkboxmenu({ label, id,checkId }: CheckboxmenuProps) {
             </div>
             <div className='flex gap-x-2 items-center justify-center w-fit'>
                 <div  className='flex items-center cursor-pointer hover:bg-neutral-100 rounded justify-center w-fit h-fit p-1'>
-                    <Plus onClick={addMoreCheckbox} size={18} className='text-neutral-400' />
+                    <Plus  size={18} className='text-neutral-400' />
                 </div>
                 <div onClick={handleDelete} className='flex items-center cursor-pointer hover:bg-neutral-100 rounded justify-center w-fit h-fit p-1'>
                     <Trash2 size={18} className='text-neutral-400' />

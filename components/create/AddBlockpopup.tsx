@@ -10,6 +10,7 @@ import { Button } from "../export";
 import { X } from "lucide-react";
 import { BlockType } from "@/types/formTypes";
 import { v4 as uuidv4 } from 'uuid';
+import { usePopup,popuptype,status } from "@/lib/usePopup";
 
 interface AddBlockpopupProps {
   open: boolean,
@@ -18,6 +19,7 @@ interface AddBlockpopupProps {
 
 export default function AddBlockpopup({ open,setOpen }: AddBlockpopupProps) {
   const { formData,addFormData } = useFormStore()
+  const {popupstatus,updatePopup} = usePopup()
 
   const handleaddBlock = (item: FormStore) => {
     if (item.type == BlockType.ShortQuestion || BlockType.LongQuestion || BlockType.rating) {
@@ -30,12 +32,16 @@ export default function AddBlockpopup({ open,setOpen }: AddBlockpopupProps) {
        const checkBoxes = item.options;
     }
   }
+
+  if (popupstatus&&popupstatus.type!==popuptype.AddBlocks) return null
+
+
   return (
     <>
-      {open && <Popup>
+      {popupstatus?.status==status.open&&<Popup>
         <div className="flex w-full p-6 rounded-xl h-96 flex-col bg-white items-start justify-start">
           <div className="flex items-center justify-end w-full h-fit">
-            <X onClick={()=>setOpen(false)} />
+            <X onClick={()=>updatePopup(null)} />
           </div>
           <div className="w-full pl-4 overflow-y-scroll pt-6 bg-white h-full rounded-xl flex  items-start justify-start">
             <div className="w-fit  flex flex-col items-start justify-start gap-y-3">

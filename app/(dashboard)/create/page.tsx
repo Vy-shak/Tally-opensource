@@ -4,6 +4,7 @@ import BlockRender from '@/formRender/BlockRender'
 import { Button,AddBlockpopup } from '@/components/export'
 import { useState } from 'react'
 import Navbar from '@/components/general/Navbar'
+import SignupPopup from '@/components/create/SignupPopup'
 
 function page() {
   const [open,setOpen] = useState(false)  
@@ -15,6 +16,7 @@ function page() {
       <BlockRender />
       <Button onClick={()=>setOpen(true)} className='fixed bottom-12 right-8'>Create</Button> 
       <AddBlockpopup setOpen = {setOpen} open={open} />
+      <SignupPopup />
       </div>
     </section>
   )

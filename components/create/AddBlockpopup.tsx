@@ -25,11 +25,13 @@ export default function AddBlockpopup({ open,setOpen }: AddBlockpopupProps) {
     if (item.type == BlockType.ShortQuestion || BlockType.LongQuestion || BlockType.rating) {
           const id = uuidv4()
           const updatedItem = {...item,id:id}
-          addFormData(updatedItem)
+          addFormData(updatedItem);
+          updatePopup(null)
     }
     if (item.type === BlockType.CheckBoxes) {
        const id = uuidv4();
        const checkBoxes = item.options;
+       updatePopup(null)
     }
   }
 
